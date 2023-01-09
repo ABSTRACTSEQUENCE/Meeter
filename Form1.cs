@@ -7,34 +7,42 @@ namespace Meeter
 	{
 		bool IsPlanning = false;
 		SaveFileDialog sf;
-		
-
 		public Form1()
 		{
 			InitializeComponent();
 			calendar.MinDate = DateTime.Now;
 			sf = new SaveFileDialog();
 		}
-		System.Threading.Thread th = new System.Threading.Thread(() =>
-		{
-			while (true)
-			{
-				if (calendar.TodayDate.ToShortDateString() == range.Start.ToShortDateString())
-				{
-					MessageBox.Show($"Событие {name} началось!");
-					break;
-				}
-			}
-		});
+		
 		class Event
 		{
 			public SelectionRange range { get; }
 			string name;
+			public bool IsEnded = false;
 			public string comment { get; set; }
-			public Event(SelectionRange range, string comment, string name, DateTime today)
+			public Event(SelectionRange range, string comment, string name)
 			{
 				this.range = range; this.comment = comment; this.name = name;
-				th.Start();
+				new System.Threading.Thread(() =>
+				{
+					while (true)
+					{
+						if (DateTime.Now.ToShortDateString() == range.Start.ToShortDateString())
+						{
+							MessageBox.Show($"Событие {name} началось!");
+							break;
+						}
+					}
+					while (true)
+					{
+						if(DateTime.Now.ToShortDateString() == range.End.ToShortDateString())
+						{
+							MessageBox.Show($"Событие{name} закончилось");
+							IsEnded = true;
+							break;
+						}
+					}
+				}).Start();
 			}
 			public override string ToString()
 			{
@@ -87,7 +95,7 @@ namespace Meeter
 				visibility(true);
 				return;
 			}
-			Event ev = new Event(calendar.SelectionRange, tb_comments.Text, tb_name.Text, calendar.TodayDate);
+			Event ev = new Event(calendar.SelectionRange, tb_comments.Text, tb_name.Text);
 			if (ev.range == calendar.SelectionRange) //Надо сделать так, чтобы при пересечении дат выходил MS с ошибкой
 			{
 				MessageBox.Show("На этот день уже назначена встреча");
@@ -102,6 +110,11 @@ namespace Meeter
 
 		private void bt_planned_Click(object sender, EventArgs e)
 		{
+			for(int i = 0; i < lb_planned.Items.Count; i++)
+			{
+				Event buffer = (Event)lb_planned.Items[i];
+				if (buffer.IsEnded) lb_planned.Items.Remove(i);
+			}
 			if (lb_planned.Visible)
 			{
 				bt_planned.Text = "Отобразить запланированные события";
@@ -160,12 +173,15 @@ namespace Meeter
 			sf.DefaultExt = ".txt";
 			sf.Filter = "Текст|.txt";
 			sf.ShowDialog(); 
-			File.WriteAllText(sf.FileName,lb_planned.Items[lb_planned.SelectedIndex].ToString());
+			File.WriteAllText(sf.FileName,lb_planned.Items[lb_planned.SelectedIndex].ToString());//System.ArgumentException: "Пустое имя пути не допускается."
+
 		}
 	}
 	/*TODO:
-	 1)Сделать базу данных
-	 2)Сделать уведомления по времени
-	 3)Сделать так, чтобы события не пересекались
+	1)Сделать базу данных
+	2)Сделать уведомления по времени --PARTIALLY DONE
+	2.1)Сделать так, чтобы событие удалялось при завершении
+	3)Сделать так, чтобы события не пересекались
+	4)Сделать дебаг
 	*/
 }

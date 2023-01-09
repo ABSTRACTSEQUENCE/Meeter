@@ -51,7 +51,7 @@ namespace Meeter
 			this.bt_plan.BackColor = System.Drawing.Color.Violet;
 			this.bt_plan.Font = new System.Drawing.Font("Lucida Console", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.bt_plan.ForeColor = System.Drawing.SystemColors.Desktop;
-			this.bt_plan.Location = new System.Drawing.Point(63, 233);
+			this.bt_plan.Location = new System.Drawing.Point(754, 229);
 			this.bt_plan.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
 			this.bt_plan.Name = "bt_plan";
 			this.bt_plan.Size = new System.Drawing.Size(263, 36);
@@ -106,7 +106,7 @@ namespace Meeter
 			this.l_chose_date.BackColor = System.Drawing.Color.Transparent;
 			this.l_chose_date.Font = new System.Drawing.Font("Microsoft Himalaya", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.l_chose_date.ForeColor = System.Drawing.Color.Orange;
-			this.l_chose_date.Location = new System.Drawing.Point(105, 299);
+			this.l_chose_date.Location = new System.Drawing.Point(796, 295);
 			this.l_chose_date.Name = "l_chose_date";
 			this.l_chose_date.Size = new System.Drawing.Size(148, 24);
 			this.l_chose_date.TabIndex = 7;
@@ -115,7 +115,7 @@ namespace Meeter
 			// 
 			// tb_comments
 			// 
-			this.tb_comments.Location = new System.Drawing.Point(419, 367);
+			this.tb_comments.Location = new System.Drawing.Point(171, 328);
 			this.tb_comments.Multiline = true;
 			this.tb_comments.Name = "tb_comments";
 			this.tb_comments.Size = new System.Drawing.Size(263, 166);
@@ -128,7 +128,7 @@ namespace Meeter
 			this.l_comments.BackColor = System.Drawing.Color.Transparent;
 			this.l_comments.Font = new System.Drawing.Font("Microsoft Himalaya", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.l_comments.ForeColor = System.Drawing.Color.Orange;
-			this.l_comments.Location = new System.Drawing.Point(428, 330);
+			this.l_comments.Location = new System.Drawing.Point(180, 291);
 			this.l_comments.Name = "l_comments";
 			this.l_comments.Size = new System.Drawing.Size(237, 24);
 			this.l_comments.TabIndex = 9;
@@ -137,7 +137,7 @@ namespace Meeter
 			// 
 			// calendar
 			// 
-			this.calendar.Location = new System.Drawing.Point(100, 332);
+			this.calendar.Location = new System.Drawing.Point(791, 328);
 			this.calendar.Name = "calendar";
 			this.calendar.TabIndex = 10;
 			this.calendar.Visible = false;
@@ -158,7 +158,7 @@ namespace Meeter
 			this.l_name.BackColor = System.Drawing.Color.Transparent;
 			this.l_name.Font = new System.Drawing.Font("Microsoft Himalaya", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.l_name.ForeColor = System.Drawing.Color.Orange;
-			this.l_name.Location = new System.Drawing.Point(455, 259);
+			this.l_name.Location = new System.Drawing.Point(207, 220);
 			this.l_name.Name = "l_name";
 			this.l_name.Size = new System.Drawing.Size(179, 24);
 			this.l_name.TabIndex = 12;
@@ -167,7 +167,7 @@ namespace Meeter
 			// 
 			// tb_name
 			// 
-			this.tb_name.Location = new System.Drawing.Point(459, 286);
+			this.tb_name.Location = new System.Drawing.Point(211, 247);
 			this.tb_name.Name = "tb_name";
 			this.tb_name.Size = new System.Drawing.Size(175, 18);
 			this.tb_name.TabIndex = 13;
@@ -207,7 +207,7 @@ namespace Meeter
 			this.bt_cancel.BackColor = System.Drawing.Color.Violet;
 			this.bt_cancel.Font = new System.Drawing.Font("Lucida Console", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.bt_cancel.ForeColor = System.Drawing.SystemColors.Desktop;
-			this.bt_cancel.Location = new System.Drawing.Point(76, 506);
+			this.bt_cancel.Location = new System.Drawing.Point(767, 502);
 			this.bt_cancel.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
 			this.bt_cancel.Name = "bt_cancel";
 			this.bt_cancel.Size = new System.Drawing.Size(240, 27);
