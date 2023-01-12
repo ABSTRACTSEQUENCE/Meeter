@@ -7,6 +7,7 @@ namespace Meeter
 	{
 		bool IsPlanning = false;
 		SaveFileDialog sf;
+		public Event export { get; private set; }
 		public Form1()
 		{
 			InitializeComponent();
@@ -14,12 +15,12 @@ namespace Meeter
 			sf = new SaveFileDialog();
 		}
 		
-		class Event
+		public class Event
 		{
 			public SelectionRange range { get; }
-			string name;
-			public bool IsEnded = false;
-			public string comment { get; set; }
+			internal string name { get; private set; }
+			internal bool IsEnded { get; private set; }
+			public string comment { get; private set; }
 			public Event(SelectionRange range, string comment, string name)
 			{
 				this.range = range; this.comment = comment; this.name = name;
@@ -169,12 +170,10 @@ namespace Meeter
 		private void bt_export_Click(object sender, EventArgs e)
 		{
 			if (lb_planned.SelectedIndex == -1) return;
-			 
-			sf.DefaultExt = ".txt";
-			sf.Filter = "Текст|.txt";
-			sf.ShowDialog(); 
-			File.WriteAllText(sf.FileName,lb_planned.Items[lb_planned.SelectedIndex].ToString());//System.ArgumentException: "Пустое имя пути не допускается."
-
+			Export ex = new Export(this);
+			export = (Event)lb_planned.Items[lb_planned.SelectedIndex];
+			ex.ShowDialog();
+			ex.Dispose();
 		}
 	}
 	/*TODO:

@@ -3,7 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using System.Data.Sql;
+using System.Data.SqlTypes;
+using System.Data.SqlClient;
+using System.Configuration;
 namespace Meeter
 {
 	static class Program
