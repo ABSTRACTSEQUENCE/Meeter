@@ -47,24 +47,30 @@ namespace Meeter
 			}
 			SqlCommand s = new SqlCommand();//Нужно привести дату в вид YYYY.MM.DD HH.MM.SS
 			s.Connection = conn;
+			Form1.Event ev = (Form1.Event)f1.lb_planned.SelectedItem;
 			s.CommandText =
-				$"INSERT INTO Date(Start, [End])" +
-				$"VALUES" +
-				$"('{start.Value.Year}" +
-				$"-{convert(start.Value.Day)}" +
-				$"-{convert(start.Value.Month)} " +
-				$"{convert(start.Value.Hour)}" +
-				$":{convert(start.Value.Minute)}" +
-				$":{convert(start.Value.Second)}'," +
-				$"'{end.Value.Year}-" +
-				$"{convert(end.Value.Day)}-" +
-				$"{convert(end.Value.Month)} " +
-				$"{convert(end.Value.Hour)}:" +
-				$"{convert(end.Value.Minute)}:" +
-				$"{convert(end.Value.Second)}')";
+				$"INSERT INTO Date(Start,[End]";
+			if (ev.name != "") s.CommandText += ",Name";
+			if (ev.comment != "") s.CommandText += ",Comment";
+			s.CommandText +=
+	 $")VALUES"
+	+ $"('{start.Value.Year}"
+	+ $"-{convert(start.Value.Day)}"
+	+ $"-{convert(start.Value.Month)} "
+	+ $"{convert(start.Value.Hour)}"
+	+ $":{convert(start.Value.Minute)}"
+	+ $":{convert(start.Value.Second)}',"
+	+ $"'{end.Value.Year}-"
+	+ $"{convert(end.Value.Day)}-"
+	+ $"{convert(end.Value.Month)} "
+	+ $"{convert(end.Value.Hour)}:"
+	+ $"{convert(end.Value.Minute)}:"
+	+ $"{convert(end.Value.Second)}'";
+			if (ev.name != "") s.CommandText += $",'{ev.name}'";
+			if (ev.comment != "") s.CommandText += $",'{ev.comment}')";
+			else s.CommandText += ")";
 			MessageBox.Show($"Добавлено {s.ExecuteNonQuery()} строк в базу данных");
 			Close();
-			//Самое сложное позади, осталось добавить возможность добавлять коментарии и имя к эвенту в базу и пофиксить баги из TODO листа
 		}
 
 		private void bt_txt_Click(object sender, EventArgs e)

@@ -268,7 +268,6 @@ namespace Meeter
 		private System.Windows.Forms.Button bt_plan;
 		private System.Windows.Forms.Button bt_planned;
 		private System.Windows.Forms.Label label1;
-		private System.Windows.Forms.ListBox lb_planned;
 		private System.Windows.Forms.Label l_chose_date;
 		private System.Windows.Forms.TextBox tb_comments;
 		private System.Windows.Forms.Label l_comments;
@@ -280,6 +279,7 @@ namespace Meeter
 		private System.Windows.Forms.Button bt_edit;
 		private System.Windows.Forms.Button bt_cancel;
 		private System.Windows.Forms.Button bt_export;
+		public System.Windows.Forms.ListBox lb_planned;
 	}
 }
 

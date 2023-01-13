@@ -18,7 +18,7 @@ namespace Meeter
 		public class Event
 		{
 			public SelectionRange range { get; }
-			internal string name { get; private set; }
+			public string name { get; private set; }
 			internal bool IsEnded { get; private set; }
 			public string comment { get; private set; }
 			public Event(SelectionRange range, string comment, string name)
